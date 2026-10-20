@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Estates ERP — Demo Preview</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">DEMO PREVIEW · Concept — all data is sample</div>
+
+<!-- LOGIN VIEW -->
+<div id="login-view">
+  <div class="login-card">
+    <div class="login-logo" id="login-logo-text">DE</div>
+    <h1 id="login-company-name">Demo Estates ERP</h1>
+    <p class="login-sub">Property Management System</p>
+    <input type="text" id="login-user" placeholder="Username (any)">
+    <input type="password" id="login-pass" placeholder="Password (any)">
+    <button class="btn btn-primary btn-block" onclick="doLogin()">Demo Login</button>
+    <p class="login-hint">Demo only — any credentials work.</p>
+  </div>
+</div>
+
+<!-- APP VIEW -->
+<div id="app-view" class="hidden">
+  <aside id="sidebar">
+    <div class="brand"><span id="brand-logo">DE</span><span id="brand-name">Demo Estates</span></div>
+    <nav id="nav">
+      <button class="nav-item active" data-view="dashboard"><span>📊</span> Dashboard</button>
+      <button class="nav-item" data-view="properties"><span>🏘️</span> Properties</button>
+      <button class="nav-item" data-view="leads"><span>🧲</span> Leads</button>
+      <button class="nav-item" data-view="commissions"><span>💰</span> Commissions</button>
+      <button class="nav-item" data-view="agents"><span>👥</span> Agents</button>
+      <button class="nav-item" data-view="reports"><span>📈</span> Reports</button>
+      <button class="nav-item" data-view="settings"><span>⚙️</span> Settings</button>
+    </nav>
+    <button class="nav-item logout" onclick="doLogout()"><span>🚪</span> Logout</button>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
+      <h2 id="view-title">Dashboard</h2>
+      <span class="sample-tag">Sample data</span>
+    </header>
+    <main id="content">
+
+      <!-- DASHBOARD -->
+      <section class="view" id="view-dashboard">
+        <div class="kpi-grid" id="kpi-grid"></div>
+        <div class="panel-grid">
+          <div class="panel">
+            <h3>Deals — Last 6 Months</h3>
+            <canvas id="chart-deals" height="180"></canvas>
+          </div>
+          <div class="panel">
+            <h3>Recent Activity</h3>
+            <ul class="activity" id="activity-feed"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROPERTIES -->
+      <section class="view hidden" id="view-properties">
+        <div class="toolbar">
+          <input type="search" id="prop-search" placeholder="Search properties…" oninput="renderProperties()">
+          <select id="prop-status-filter" onchange="renderProperties()">
+            <option value="">All statuses</option>
+            <option>Available</option><option>Sold</option><option>Rented</option>
+          </select>
+          <button class="btn btn-primary" onclick="openPropModal()">+ Add Property</button>
+        </div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th>Title</th><th>Area</th><th>Type</th><th>Size</th><th>Price</th><th>Status</th><th></th></tr></thead>
+          <tbody id="props-body"></tbody>
+        </table></div>
+      </section>
+
+      <!-- LEADS -->
+      <section class="view hidden" id="view-leads">
+        <div class="toolbar">
+          <button class="btn btn-primary" onclick="openLeadModal()">+ Add Lead</button>
+        </div>
+        <div class="kanban" id="kanban"></div>
+      </section>
+
+      <!-- COMMISSIONS -->
+      <section class="view hidden" id="view-commissions">
+        <div class="kpi-grid" id="comm-kpis"></div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th>Deal</th><th>Agent</th><th>Sale Price</th><th>Comm. %</th><th>Amount</th><th>Date</th></tr></thead>
+          <tbody id="comm-body"></tbody>
+        </table></div>
+      </section>
+
+      <!-- AGENTS -->
+      <section class="view hidden" id="view-agents">
+        <div class="toolbar"><button class="btn btn-primary" onclick="openAgentModal()">+ Add Agent</button></div>
+        <div class="cards-grid" id="agents-grid"></div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="view hidden" id="view-reports">
+        <div class="panel-grid">
+          <div class="panel"><h3>Deals by Month</h3><canvas id="chart-monthly" height="200"></canvas></div>
+          <div class="panel"><h3>Leads by Source</h3><canvas id="chart-source" height="200"></canvas></div>
+        </div>
+        <div class="panel"><h3>Top Agents (by commission)</h3><canvas id="chart-agents" height="160"></canvas></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view hidden" id="view-settings">
+        <div class="panel form-panel">
+          <h3>Company Profile</h3>
+          <label>Company name <input type="text" id="set-name"></label>
+          <label>Logo text (2 letters) <input type="text" id="set-logo" maxlength="2"></label>
+          <label>WhatsApp number <input type="text" id="set-wa" placeholder="923001234567"></label>
+          <button class="btn btn-primary" onclick="saveSettings()">Save</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="hidden">
+  <div class="modal-card">
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="modal-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
