@@ -18,10 +18,16 @@
     <div class="login-logo" id="login-logo-text">DE</div>
     <h1 id="login-company-name">Demo Estates ERP</h1>
     <p class="login-sub">Property Management System</p>
-    <input type="text" id="login-user" placeholder="Username (any)">
-    <input type="password" id="login-pass" placeholder="Password (any)">
-    <button class="btn btn-primary btn-block" onclick="doLogin()">Demo Login</button>
-    <p class="login-hint">Demo only — any credentials work.</p>
+    <button class="btn btn-primary btn-block" style="font-size:17px;padding:14px" onclick="doLogin()">▶ &nbsp;Enter Demo — One Click</button>
+    <p class="login-hint" style="margin:12px 0 6px">No sign-up needed. This is a live demo — just click and explore.</p>
+    <details style="margin-top:8px">
+      <summary style="cursor:pointer;font-size:13px;color:#888">Or sign in with email &amp; password</summary>
+      <div style="margin-top:10px;display:grid;gap:8px">
+        <input type="text" id="login-user" placeholder="Email — anything works, e.g. you@gmail.com">
+        <input type="password" id="login-pass" placeholder="Password — anything works">
+        <button class="btn btn-block" onclick="doLogin()">Sign In</button>
+      </div>
+    </details>
   </div>
 </div>
 
