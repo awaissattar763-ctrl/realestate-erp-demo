@@ -8,7 +8,7 @@ const seed = {
   properties: [
     { id: 1, title: '5 Marla Brand New House', area: 'Bahria Town, Lahore', type: 'House', size: '5 Marla', price: 'Rs. 1.85 Crore', status: 'Available' },
     { id: 2, title: '10 Marla Corner House', area: 'DHA Phase 6, Lahore', type: 'House', size: '10 Marla', price: 'Rs. 3.90 Crore', status: 'Available' },
-    { id: 3, title: '2 Bed Luxury Apartment', area: 'Clifton Block 5, Karachi', type: 'Apartment', size: '1,150 sq ft', price: 'Rs. 1.20 Crore', status: 'Sold' },
+    { id: 3, title: '2 Bed Luxury Apartment', area: 'Clifton Block 5, Karachi', type: 'Apartment', size: '1,150 sq ft', price: 'Rs. 1.20 Crore', status: 'Sold', docs: [{ name: 'Sale Deed — Clifton Apt.pdf', type: 'application/pdf', size: 245760, added: 'Oct 5, 2026' }] },
     { id: 4, title: '1 Kanal Modern Villa', area: 'DHA Phase 5, Islamabad', type: 'Villa', size: '1 Kanal', price: 'Rs. 6.50 Crore', status: 'Available' },
     { id: 5, title: '120 Sq Yd Plot', area: 'Bahria Town Precinct 12, Karachi', type: 'Plot', size: '120 Sq Yd', price: 'Contact for price', status: 'Available' },
     { id: 6, title: '3 Bed Apartment (Furnished)', area: 'Gulberg III, Lahore', type: 'Apartment', size: '1,650 sq ft', price: 'Rs. 85,000/mo', status: 'Rented' },
@@ -18,12 +18,12 @@ const seed = {
     { id: 10, title: '1 Bed Studio Apartment', area: 'Bahria Enclave, Islamabad', type: 'Apartment', size: '620 sq ft', price: 'Rs. 38,000/mo', status: 'Rented' }
   ],
   leads: [
-    { id: 1, name: 'Ahmed Raza', phone: '0301-2345678', interest: '5 Marla house, Bahria Lahore', source: 'TikTok', status: 'New', followUp: '2026-10-20' },
+    { id: 1, name: 'Ahmed Raza', phone: '0301-2345678', interest: '5 Marla house, Bahria Lahore', source: 'TikTok', status: 'New', followUp: '2026-10-20', notes: [{ text: 'Called — budget confirmed, wants a corner unit if possible.', time: 'Oct 19, 2026 · 11:20 AM' }, { text: 'Shared listing brochure on WhatsApp.', time: 'Oct 20, 2026 · 9:05 AM' }] },
     { id: 2, name: 'Fatima Khan', phone: '0321-9876543', interest: '2 Bed apartment, Clifton', source: 'Facebook', status: 'Contacted', followUp: '2026-10-18' },
     { id: 3, name: 'Bilal Hussain', phone: '0333-1122334', interest: '10 Marla, DHA Phase 6', source: 'Walk-in', status: 'Visit Scheduled', followUp: '2026-10-21' },
-    { id: 4, name: 'Ayesha Malik', phone: '0300-5566778', interest: '1 Kanal villa, Islamabad', source: 'Referral', status: 'Negotiating', followUp: '2026-10-20' },
+    { id: 4, name: 'Ayesha Malik', phone: '0300-5566778', interest: '1 Kanal villa, Islamabad', source: 'Referral', status: 'Negotiating', followUp: '2026-10-20', notes: [{ text: 'Site visit done — liked the villa, negotiating on payment terms.', time: 'Oct 18, 2026 · 4:40 PM' }] },
     { id: 5, name: 'Usman Tariq', phone: '0345-6677889', interest: 'Plot, Bahria Karachi', source: 'WhatsApp', status: 'New', followUp: '2026-10-19' },
-    { id: 6, name: 'Sana Iqbal', phone: '0312-3344556', interest: 'Studio, Bahria Enclave', source: 'Website', status: 'Closed', followUp: null },
+    { id: 6, name: 'Sana Iqbal', phone: '0312-3344556', interest: 'Studio, Bahria Enclave', source: 'Website', status: 'Closed', followUp: null, docs: [{ name: 'CNIC — Sana Iqbal.jpg', type: 'image/jpeg', size: 512000, added: 'Oct 14, 2026' }] },
     { id: 7, name: 'Hassan Sheikh', phone: '0308-7788990', interest: 'Commercial shop, Johar Town', source: 'Facebook', status: 'Closed', followUp: null },
     { id: 8, name: 'Maryam Nawaz', phone: '0322-4455667', interest: '7 Marla, Sector C Islamabad', source: 'TikTok', status: 'Contacted', followUp: '2026-10-25' },
     { id: 9, name: 'Ali Hamza', phone: '0334-9900112', interest: 'Apartment, Gulberg', source: 'WhatsApp', status: 'Lost', followUp: null },
@@ -50,6 +50,14 @@ const seed = {
     { id: 4, buyer: 'Usman Tariq', property: '250 Sq Yd Plot — DHA Phase 8, Karachi', total: 12500000, down: 2500000, monthly: 208333, months: 48, paid: 3, start: '2026-07-20' },
     { id: 5, buyer: 'Sana Iqbal', property: '2 Bed Apartment — Gulberg III, Lahore', total: 6000000, down: 1200000, monthly: 133333, months: 36, paid: 36, start: '2023-10-15' }
   ],
+  expenses: [
+    { id: 1, title: 'Office Rent — Gulberg', category: 'Office', amount: 85000, date: '2026-10-01', note: 'Monthly rent' },
+    { id: 2, title: 'Facebook Ads — Bahria listings', category: 'Marketing', amount: 32000, date: '2026-10-06', note: 'Boosted posts' },
+    { id: 3, title: 'Fuel — site visits', category: 'Transport', amount: 12500, date: '2026-10-09', note: 'Karachi team' },
+    { id: 4, title: 'Electricity & internet bill', category: 'Utilities', amount: 18750, date: '2026-10-12', note: '' },
+    { id: 5, title: 'Photography — Clifton apartment', category: 'Marketing', amount: 15000, date: '2026-09-18', note: 'Listing shoot' },
+    { id: 6, title: 'Printing — brochures', category: 'Office', amount: 6400, date: '2026-09-25', note: '' }
+  ],
   activity: [
     { text: 'New lead added: Usman Tariq (WhatsApp)', time: 'Today, 10:24 AM' },
     { text: 'Deal closed: Commercial Shop — Johar Town by Imran Sheikh', time: 'Oct 11, 4:10 PM' },
@@ -63,10 +71,17 @@ const seed = {
 let DB = load();
 let charts = {};
 
+function normalize(d) {
+  // Backfill fields added in later versions so old saved data keeps working.
+  if (!Array.isArray(d.expenses)) d.expenses = JSON.parse(JSON.stringify(seed.expenses));
+  d.properties = (d.properties || []).map(p => ({ docs: [], ...p }));
+  d.leads = (d.leads || []).map(l => ({ notes: [], docs: [], ...l }));
+  return d;
+}
 function load() {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) return normalize(JSON.parse(raw));
   } catch (e) {}
   // graceful migration from v1: keep old data, backfill new fields
   try {
@@ -75,16 +90,53 @@ function load() {
       const d = JSON.parse(old);
       d.leads = (d.leads || []).map(l => ({ followUp: null, ...l }));
       d.installments = JSON.parse(JSON.stringify(seed.installments));
-      localStorage.setItem(KEY, JSON.stringify(d));
-      return d;
+      localStorage.setItem(KEY, JSON.stringify(normalize(d)));
+      return normalize(d);
     }
   } catch (e) {}
-  return JSON.parse(JSON.stringify(seed));
+  return normalize(JSON.parse(JSON.stringify(seed)));
 }
 function save() { localStorage.setItem(KEY, JSON.stringify(DB)); }
 function nextId(arr) { return arr.length ? Math.max(...arr.map(x => x.id)) + 1 : 1; }
 function fmt(n) { return 'Rs. ' + n.toLocaleString('en-PK'); }
 function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function nowStamp() {
+  const d = new Date();
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    + ' · ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+function dateStamp() {
+  return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+function fmtSize(bytes) {
+  const n = Number(bytes) || 0;
+  if (n < 1024) return n + ' B';
+  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+  return (n / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+/* ---------- Roles (demo-level) ---------- */
+const ROLE_KEY = 'demoEstatesERP_role';
+let ROLE = localStorage.getItem(ROLE_KEY) || 'Admin';
+function canEdit() { return ROLE === 'Admin' || ROLE === 'Agent'; }
+function canDelete() { return ROLE === 'Admin'; }
+function setRole(r) {
+  ROLE = r;
+  localStorage.setItem(ROLE_KEY, r);
+  applyRole();
+  const cur = document.querySelector('.view:not(.hidden)');
+  if (cur) showView(cur.id.replace('view-', ''));
+}
+function applyRole() {
+  const sel = $('role-select');
+  if (sel) sel.value = ROLE;
+  document.body.classList.toggle('role-viewer', ROLE === 'Viewer');
+  document.body.classList.toggle('role-agent', ROLE === 'Agent');
+  const settingsBtn = document.querySelector('.nav-item[data-view="settings"]');
+  if (settingsBtn) settingsBtn.style.display = ROLE === 'Admin' ? '' : 'none';
+  if (ROLE !== 'Admin' && !$('view-settings').classList.contains('hidden')) showView('dashboard');
+}
 /* ---------- Helpers ---------- */
 function waLink(phone) {
   let d = String(phone || '').replace(/\D/g, '');
@@ -128,8 +180,9 @@ document.querySelectorAll('.nav-item[data-view]').forEach(b => {
 });
 const VIEW_TITLES = { dashboard: 'Dashboard', properties: 'Properties', leads: 'Leads',
   followups: 'Follow-ups', installments: 'Installments', commissions: 'Commissions',
-  agents: 'Agents', reports: 'Reports', settings: 'Settings' };
+  expenses: 'Expenses', agents: 'Agents', reports: 'Reports', settings: 'Settings' };
 function showView(name) {
+  if (name === 'settings' && ROLE !== 'Admin') name = 'dashboard';
   document.querySelectorAll('.nav-item[data-view]').forEach(b => b.classList.toggle('active', b.dataset.view === name));
   document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
   $('view-' + name).classList.remove('hidden');
@@ -137,8 +190,8 @@ function showView(name) {
   $('sidebar').classList.remove('open');
   ({ dashboard: renderDashboard, properties: renderProperties, leads: renderLeads,
      followups: renderFollowups, installments: renderInstallments,
-     commissions: renderCommissions, agents: renderAgents, reports: renderReports,
-     settings: renderSettings }[name] || renderDashboard)();
+     commissions: renderCommissions, expenses: renderExpenses, agents: renderAgents,
+     reports: renderReports, settings: renderSettings }[name] || renderDashboard)();
 }
 
 /* ---------- Dashboard ---------- */
@@ -148,12 +201,15 @@ function renderDashboard() {
   const monthComm = DB.commissions.filter(c => c.date.startsWith('2026-10'))
     .reduce((s, c) => s + c.salePrice * c.pct / 100, 0);
   const fuDue = DB.leads.filter(l => l.followUp && l.followUp <= TODAY).length;
+  const monthExp = DB.expenses.filter(e => e.date.startsWith(TODAY.slice(0, 7)))
+    .reduce((s, e) => s + e.amount, 0);
   $('kpi-grid').innerHTML = [
     ['Total Properties', DB.properties.length, DB.properties.filter(p => p.status === 'Available').length + ' available'],
     ['Active Leads', openLeads, DB.leads.length + ' total in pipeline'],
     ["This Month's Commission", fmt(monthComm), 'Oct 2026 closed deals'],
     ['Pending Deals', pendingDeals, 'visits + negotiations'],
-    ['Follow-ups Due Today', fuDue, DB.leads.filter(l => l.followUp && l.followUp < TODAY).length + ' overdue']
+    ['Follow-ups Due Today', fuDue, DB.leads.filter(l => l.followUp && l.followUp < TODAY).length + ' overdue'],
+    ["This Month's Expenses", fmt(monthExp), DB.expenses.length + ' expense entries total']
   ].map(([l, v, s]) => `<div class="kpi"><div class="k-label">${l}</div><div class="k-value">${v}</div><div class="k-sub">${s}</div></div>`).join('');
   $('activity-feed').innerHTML = DB.activity.map(a => `<li>${a.text}<span class="a-time">${a.time}</span></li>`).join('');
   drawChart('chart-deals', 'bar', DB.dealsByMonth.labels, DB.dealsByMonth.values, 'Deals closed', '#2563eb');
@@ -169,11 +225,13 @@ function renderProperties() {
     <td><strong>${p.title}</strong></td><td>${p.area}</td><td>${p.type}</td><td>${p.size}</td><td>${p.price}</td>
     <td><span class="badge ${p.status === 'Available' ? 'b-avail' : p.status === 'Sold' ? 'b-sold' : 'b-rented'}">${p.status}</span></td>
     <td><a class="btn btn-sm btn-wa" href="https://wa.me/${waLink(DB.settings.wa)}?text=${encodeURIComponent(`Salam, I'm interested in ${p.title} — ${p.area} (${p.price}).`)}" target="_blank" rel="noopener">💬 Inquire</a>
-        <button class="btn btn-sm" onclick="openPropModal(${p.id})">Edit</button>
-        <button class="btn btn-sm btn-danger" onclick="delProperty(${p.id})">Delete</button></td></tr>`).join('')
+        <button class="btn btn-sm" onclick="openDocsModal('property', ${p.id})">📎 Docs (${(p.docs || []).length})</button>
+        ${canEdit() ? `<button class="btn btn-sm" onclick="openPropModal(${p.id})">Edit</button>` : ''}
+        ${canDelete() ? `<button class="btn btn-sm btn-danger" onclick="delProperty(${p.id})">Delete</button>` : ''}</td></tr>`).join('')
     || '<tr><td colspan="7">No properties match.</td></tr>';
 }
 function openPropModal(id) {
+  if (!canEdit()) return;
   const p = id ? DB.properties.find(x => x.id === id) : { title: '', area: '', type: 'House', size: '', price: 'Contact for price', status: 'Available' };
   openModal(id ? 'Edit Property' : 'Add Property', `
     <label>Title <input id="m-title" value="${p.title}"></label>
@@ -190,9 +248,63 @@ function openPropModal(id) {
   });
 }
 function delProperty(id) {
+  if (!canDelete()) return;
   if (!confirm('Delete this property?')) return;
   DB.properties = DB.properties.filter(x => x.id !== id);
   save(); renderProperties();
+}
+
+/* ---------- Documents (properties & leads) ---------- */
+/* Only file metadata (name/type/size) is stored — never file contents. */
+let modalRefresh = null;
+let leadNoteDraft = '';
+function stashNoteDraft() { const t = $('m-note'); if (t) leadNoteDraft = t.value; }
+function docOwner(kind, id) {
+  return kind === 'property' ? DB.properties.find(x => x.id === id) : DB.leads.find(x => x.id === id);
+}
+function docsListHTML(kind, owner) {
+  const docs = owner.docs || [];
+  if (!docs.length) return '<p class="doc-empty">No documents attached yet.</p>';
+  return docs.map((d, i) => `<div class="doc-item">
+      <span class="doc-icon">📄</span>
+      <span class="doc-main"><span class="doc-name">${esc(d.name)}</span>
+      <span class="doc-meta">${esc(d.type || 'file')} · ${fmtSize(d.size)} · added ${esc(d.added || '')}</span></span>
+      ${canDelete() ? `<button class="btn btn-sm btn-danger" onclick="removeDoc('${kind}', ${owner.id}, ${i})">Remove</button>` : ''}
+    </div>`).join('');
+}
+function openDocsModal(kind, id) {
+  const owner = docOwner(kind, id);
+  if (!owner) return;
+  const label = kind === 'property' ? owner.title : owner.name;
+  openModal('Documents — ' + label, `
+    <div class="doc-list">${docsListHTML(kind, owner)}</div>
+    ${canEdit() ? `<label class="doc-attach">Attach a document
+      <input type="file" onchange="attachDoc('${kind}', ${id}, this)"></label>
+      <p class="doc-hint">Demo: only the file name, type and size are saved — the file itself is not uploaded.</p>` : '<p class="doc-hint">Read-only role — attachments are disabled.</p>'}
+  `, () => closeModal());
+  $('modal-save').textContent = 'Done';
+  modalRefresh = () => openDocsModal(kind, id);
+}
+function attachDoc(kind, id, input) {
+  if (!canEdit()) return;
+  const f = input.files && input.files[0];
+  if (!f) return;
+  const owner = docOwner(kind, id);
+  if (!owner) return;
+  owner.docs = owner.docs || [];
+  owner.docs.push({ name: f.name, type: f.type || 'file', size: f.size, added: dateStamp() });
+  save();
+  if (kind === 'property') renderProperties(); else renderLeads();
+  if (modalRefresh) modalRefresh();
+}
+function removeDoc(kind, id, idx) {
+  if (!canDelete()) return;
+  const owner = docOwner(kind, id);
+  if (!owner || !owner.docs) return;
+  owner.docs.splice(idx, 1);
+  save();
+  if (kind === 'property') renderProperties(); else renderLeads();
+  if (modalRefresh) modalRefresh();
 }
 
 /* ---------- Leads (kanban) ---------- */
@@ -205,15 +317,50 @@ function renderLeads() {
       <div class="kcard"><div class="kc-name">${l.name}</div>
         <div class="kc-meta">${l.phone}<br>${l.interest}<br>Source: ${l.source}${l.followUp ? `<br>📅 Follow-up: ${l.followUp}` : ''}</div>
         <a class="btn btn-wa btn-sm kc-wa" href="https://wa.me/${waLink(l.phone)}?text=${encodeURIComponent(`Salam ${l.name}, following up on your interest in ${l.interest}...`)}" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <select onchange="moveLead(${l.id}, this.value)">${STAGES.map(s => `<option ${s === l.status ? 'selected' : ''}>${s}</option>`).join('')}</select>
+        <button class="btn btn-sm kc-notes" onclick="openLeadDetail(${l.id})">📝 Notes (${(l.notes || []).length}) · 📎 ${(l.docs || []).length}</button>
+        <select onchange="moveLead(${l.id}, this.value)" ${canEdit() ? '' : 'disabled'}>${STAGES.map(s => `<option ${s === l.status ? 'selected' : ''}>${s}</option>`).join('')}</select>
       </div>`).join('')}</div>`;
   }).join('');
 }
 function moveLead(id, status) {
+  if (!canEdit()) return;
   DB.leads.find(l => l.id === id).status = status;
   save(); renderLeads();
 }
+function openLeadDetail(id) {
+  const l = DB.leads.find(x => x.id === id);
+  if (!l) return;
+  const notes = (l.notes || []).slice().reverse();
+  openModal('Lead — ' + l.name, `
+    <div class="lead-head">
+      <div><strong>${l.name}</strong> · ${l.phone}</div>
+      <div class="kc-meta">${l.interest}<br>Source: ${l.source} · Status: ${l.status}${l.followUp ? ` · 📅 Follow-up: ${l.followUp}` : ''}</div>
+    </div>
+    <h4 class="detail-h">📝 Notes &amp; History</h4>
+    <div class="note-list">${notes.length ? notes.map(n => `<div class="note-item"><div class="note-text">${esc(n.text)}</div><div class="note-time">${esc(n.time)}</div></div>`).join('') : '<p class="doc-empty">No notes yet.</p>'}</div>
+    ${canEdit() ? `<label>Add a note <textarea id="m-note" rows="2" placeholder="e.g. Called — asked for a visit on Saturday">${esc(leadNoteDraft)}</textarea></label>` : '<p class="doc-hint">Read-only role — notes are disabled.</p>'}
+    <h4 class="detail-h">📎 Documents (${(l.docs || []).length})</h4>
+    <div class="doc-list">${docsListHTML('lead', l)}</div>
+    ${canEdit() ? `<label class="doc-attach">Attach a document
+      <input type="file" onchange="stashNoteDraft(); attachDoc('lead', ${l.id}, this)"></label>
+      <p class="doc-hint">Demo: only the file name, type and size are saved.</p>` : ''}
+  `, () => {
+    if (!canEdit()) { closeModal(); return; }
+    const text = ($('m-note').value || '').trim();
+    if (text) {
+      l.notes = l.notes || [];
+      l.notes.push({ text, time: nowStamp() });
+      DB.activity.unshift({ text: `Note added on lead: ${l.name}`, time: 'Just now' });
+      save(); renderLeads();
+    }
+    closeModal();
+  });
+  $('modal-save').textContent = canEdit() ? 'Add Note' : 'Done';
+  modalRefresh = () => openLeadDetail(id);
+  leadNoteDraft = '';
+}
 function openLeadModal() {
+  if (!canEdit()) return;
   openModal('Add Lead', `
     <label>Name <input id="m-lname"></label>
     <label>Phone <input id="m-lphone" placeholder="03xx-xxxxxxx"></label>
@@ -221,7 +368,7 @@ function openLeadModal() {
     <label>Source <select id="m-lsource">${['TikTok','Facebook','WhatsApp','Website','Walk-in','Referral'].map(s => `<option>${s}</option>`).join('')}</select></label>
     <label>Follow-up date <input type="date" id="m-lfollowup"></label>
   `, () => {
-    DB.leads.push({ id: nextId(DB.leads), name: $('m-lname').value, phone: $('m-lphone').value, interest: $('m-linterest').value, source: $('m-lsource').value, status: 'New', followUp: $('m-lfollowup').value || null });
+    DB.leads.push({ id: nextId(DB.leads), name: $('m-lname').value, phone: $('m-lphone').value, interest: $('m-linterest').value, source: $('m-lsource').value, status: 'New', followUp: $('m-lfollowup').value || null, notes: [], docs: [] });
     save(); closeModal(); renderLeads();
   });
 }
@@ -263,11 +410,12 @@ function renderInstallments() {
       <div class="i-row"><span>Schedule</span><span>${p.paid} / ${p.months} × ${fmt(p.monthly)}/mo</span></div>
       <div class="i-row"><span>Next due</span><span>${next}</span></div>
       <div class="i-row"><span>Status</span><span class="badge ${st === 'Active' ? 'st-active' : st === 'Overdue' ? 'st-overdue' : 'st-completed'}">${st}</span></div>
-      ${st !== 'Completed' ? `<div class="i-actions"><button class="btn btn-primary btn-sm" onclick="markPayment(${p.id})">✓ Mark Payment (${fmt(p.monthly)})</button></div>` : ''}
+      ${st !== 'Completed' && canEdit() ? `<div class="i-actions"><button class="btn btn-primary btn-sm" onclick="markPayment(${p.id})">✓ Mark Payment (${fmt(p.monthly)})</button></div>` : ''}
     </div>`;
   }).join('');
 }
 function markPayment(id) {
+  if (!canEdit()) return;
   const p = DB.installments.find(x => x.id === id);
   if (!p || p.paid >= p.months) return;
   p.paid += 1;
@@ -275,6 +423,7 @@ function markPayment(id) {
   save(); renderInstallments();
 }
 function openPlanModal() {
+  if (!canEdit()) return;
   openModal('Add Installment Plan', `
     <label>Buyer name <input id="m-pbuyer"></label>
     <label>Property <input id="m-pprop" placeholder="e.g. 5 Marla House — Bahria Town"></label>
@@ -307,6 +456,81 @@ function renderCommissions() {
     <td>${fmt(c.salePrice)}</td><td>${c.pct}%</td><td><strong>${fmt(c.salePrice * c.pct / 100)}</strong></td><td>${c.date}</td></tr>`).join('');
 }
 
+/* ---------- Expenses ---------- */
+const EXP_CATEGORIES = ['Office', 'Marketing', 'Transport', 'Utilities', 'Staff', 'Other'];
+function renderExpenses() {
+  const monthKey = TODAY.slice(0, 7);
+  const monthTotal = DB.expenses.filter(e => e.date.startsWith(monthKey)).reduce((s, e) => s + e.amount, 0);
+  const allTotal = DB.expenses.reduce((s, e) => s + e.amount, 0);
+  const topCat = EXP_CATEGORIES
+    .map(c => [c, DB.expenses.filter(e => e.category === c && e.date.startsWith(monthKey)).reduce((s, e) => s + e.amount, 0)])
+    .sort((a, b) => b[1] - a[1])[0];
+  $('exp-kpis').innerHTML = [
+    ["This Month's Expenses", fmt(monthTotal), 'Oct 2026'],
+    ['Total Expenses (all time)', fmt(allTotal), DB.expenses.length + ' entries'],
+    ['Top Category (this month)', topCat && topCat[1] ? topCat[0] : '—', topCat && topCat[1] ? fmt(topCat[1]) : 'no expenses this month']
+  ].map(([l, v, s]) => `<div class="kpi"><div class="k-label">${l}</div><div class="k-value">${v}</div><div class="k-sub">${s}</div></div>`).join('');
+  const rows = DB.expenses.slice().sort((a, b) => b.date.localeCompare(a.date));
+  $('exp-body').innerHTML = rows.map(e => `<tr>
+    <td>${e.date}</td><td><strong>${esc(e.title)}</strong></td><td>${esc(e.category)}</td>
+    <td><strong>${fmt(e.amount)}</strong></td><td>${esc(e.note || '')}</td>
+    <td>${canDelete() ? `<button class="btn btn-sm btn-danger" onclick="delExpense(${e.id})">Delete</button>` : ''}</td></tr>`).join('')
+    || '<tr><td colspan="6">No expenses recorded.</td></tr>';
+}
+function openExpenseModal() {
+  if (!canEdit()) return;
+  openModal('Add Expense', `
+    <label>Title <input id="m-etitle" placeholder="e.g. Office rent"></label>
+    <label>Category <select id="m-ecat">${EXP_CATEGORIES.map(c => `<option>${c}</option>`).join('')}</select></label>
+    <label>Amount (PKR) <input type="number" id="m-eamount" placeholder="15000"></label>
+    <label>Date <input type="date" id="m-edate" value="${TODAY}"></label>
+    <label>Note <input id="m-enote" placeholder="Optional"></label>
+  `, () => {
+    DB.expenses.push({ id: nextId(DB.expenses), title: $('m-etitle').value, category: $('m-ecat').value,
+      amount: +$('m-eamount').value || 0, date: $('m-edate').value || TODAY, note: $('m-enote').value });
+    DB.activity.unshift({ text: 'Expense added: ' + $('m-etitle').value + ' — ' + fmt(+$('m-eamount').value || 0), time: 'Just now' });
+    save(); closeModal(); renderExpenses();
+  });
+}
+function delExpense(id) {
+  if (!canDelete()) return;
+  if (!confirm('Delete this expense?')) return;
+  DB.expenses = DB.expenses.filter(x => x.id !== id);
+  save(); renderExpenses();
+}
+
+/* ---------- Export (CSV) ---------- */
+function csvCell(v) {
+  const s = String(v == null ? '' : v);
+  return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+function downloadCSV(filename, headers, rows) {
+  const csv = [headers.join(',')].concat(rows.map(r => r.map(csvCell).join(','))).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+function exportCSV(kind) {
+  if (kind === 'leads') {
+    downloadCSV('leads.csv', ['ID', 'Name', 'Phone', 'Interest', 'Source', 'Status', 'Follow-up'],
+      DB.leads.map(l => [l.id, l.name, l.phone, l.interest, l.source, l.status, l.followUp || '']));
+  } else if (kind === 'properties') {
+    downloadCSV('properties.csv', ['ID', 'Title', 'Area', 'Type', 'Size', 'Price', 'Status'],
+      DB.properties.map(p => [p.id, p.title, p.area, p.type, p.size, p.price, p.status]));
+  } else if (kind === 'commissions') {
+    downloadCSV('commissions.csv', ['ID', 'Deal', 'Agent', 'Sale Price (PKR)', 'Commission %', 'Commission Amount (PKR)', 'Date'],
+      DB.commissions.map(c => [c.id, c.deal, c.agent, c.salePrice, c.pct, Math.round(c.salePrice * c.pct / 100), c.date]));
+  } else if (kind === 'expenses') {
+    downloadCSV('expenses.csv', ['ID', 'Date', 'Title', 'Category', 'Amount (PKR)', 'Note'],
+      DB.expenses.map(e => [e.id, e.date, e.title, e.category, e.amount, e.note || '']));
+  }
+}
+
 /* ---------- Agents ---------- */
 function agentStats(name) {
   const deals = DB.commissions.filter(c => c.agent === name);
@@ -321,6 +545,7 @@ function renderAgents() {
   }).join('');
 }
 function openAgentModal() {
+  if (!canEdit()) return;
   openModal('Add Agent', `
     <label>Name <input id="m-aname"></label>
     <label>Phone <input id="m-aphone" placeholder="03xx-xxxxxxx"></label>
@@ -355,6 +580,7 @@ function renderSettings() {
   $('set-wa').value = DB.settings.wa;
 }
 function saveSettings() {
+  if (ROLE !== 'Admin') return;
   DB.settings = { name: $('set-name').value, logo: ($('set-logo').value || 'DE').toUpperCase(), wa: $('set-wa').value };
   save(); applySettings(); alert('Settings saved (demo).');
 }
@@ -368,9 +594,12 @@ function applySettings() {
 /* ---------- Modal ---------- */
 let modalSaveFn = null;
 function openModal(title, bodyHTML, onSave) {
+  modalRefresh = null;
   $('modal-title').textContent = title;
   $('modal-body').innerHTML = bodyHTML;
   modalSaveFn = onSave;
+  $('modal-save').textContent = 'Save';
+  $('modal-save').style.display = '';
   $('modal').classList.remove('hidden');
 }
 function closeModal() { $('modal').classList.add('hidden'); }
@@ -378,8 +607,9 @@ $('modal-save').addEventListener('click', () => { if (modalSaveFn) modalSaveFn()
 $('modal').addEventListener('click', e => { if (e.target === $('modal')) closeModal(); });
 
 /* ---------- Init ---------- */
-function init() { applySettings(); renderDashboard(); }
+function init() { applySettings(); applyRole(); renderDashboard(); }
 applySettings();
+applyRole();
 if (sessionStorage.getItem('erpLoggedIn') === '1') {
   $('login-view').classList.add('hidden');
   $('app-view').classList.remove('hidden');

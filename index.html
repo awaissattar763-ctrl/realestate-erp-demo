@@ -42,6 +42,7 @@
       <button class="nav-item" data-view="followups"><span>⏰</span> Follow-ups</button>
       <button class="nav-item" data-view="installments"><span>📋</span> Installments</button>
       <button class="nav-item" data-view="commissions"><span>💰</span> Commissions</button>
+      <button class="nav-item" data-view="expenses"><span>🧾</span> Expenses</button>
       <button class="nav-item" data-view="agents"><span>👥</span> Agents</button>
       <button class="nav-item" data-view="reports"><span>📈</span> Reports</button>
       <button class="nav-item" data-view="settings"><span>⚙️</span> Settings</button>
@@ -52,6 +53,11 @@
     <header class="topbar">
       <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
       <h2 id="view-title">Dashboard</h2>
+      <label class="role-switch">Role
+        <select id="role-select" onchange="setRole(this.value)">
+          <option>Admin</option><option>Agent</option><option>Viewer</option>
+        </select>
+      </label>
       <span class="sample-tag">Sample data</span>
     </header>
     <main id="content">
@@ -79,7 +85,8 @@
             <option value="">All statuses</option>
             <option>Available</option><option>Sold</option><option>Rented</option>
           </select>
-          <button class="btn btn-primary" onclick="openPropModal()">+ Add Property</button>
+          <button class="btn btn-primary perm-edit" onclick="openPropModal()">+ Add Property</button>
+          <button class="btn" onclick="exportCSV('properties')">⬇ Export CSV</button>
         </div>
         <div class="table-wrap"><table class="tbl">
           <thead><tr><th>Title</th><th>Area</th><th>Type</th><th>Size</th><th>Price</th><th>Status</th><th></th></tr></thead>
@@ -90,7 +97,8 @@
       <!-- LEADS -->
       <section class="view hidden" id="view-leads">
         <div class="toolbar">
-          <button class="btn btn-primary" onclick="openLeadModal()">+ Add Lead</button>
+          <button class="btn btn-primary perm-edit" onclick="openLeadModal()">+ Add Lead</button>
+          <button class="btn" onclick="exportCSV('leads')">⬇ Export CSV</button>
         </div>
         <div class="kanban" id="kanban"></div>
       </section>
@@ -102,22 +110,36 @@
 
       <!-- INSTALLMENTS -->
       <section class="view hidden" id="view-installments">
-        <div class="toolbar"><button class="btn btn-primary" onclick="openPlanModal()">+ Add Plan</button></div>
+        <div class="toolbar"><button class="btn btn-primary perm-edit" onclick="openPlanModal()">+ Add Plan</button></div>
         <div class="cards-grid" id="plans-grid"></div>
       </section>
 
       <!-- COMMISSIONS -->
       <section class="view hidden" id="view-commissions">
         <div class="kpi-grid" id="comm-kpis"></div>
+        <div class="toolbar"><button class="btn" onclick="exportCSV('commissions')">⬇ Export CSV</button></div>
         <div class="table-wrap"><table class="tbl">
           <thead><tr><th>Deal</th><th>Agent</th><th>Sale Price</th><th>Comm. %</th><th>Amount</th><th>Date</th></tr></thead>
           <tbody id="comm-body"></tbody>
         </table></div>
       </section>
 
+      <!-- EXPENSES -->
+      <section class="view hidden" id="view-expenses">
+        <div class="kpi-grid" id="exp-kpis"></div>
+        <div class="toolbar">
+          <button class="btn btn-primary perm-edit" onclick="openExpenseModal()">+ Add Expense</button>
+          <button class="btn" onclick="exportCSV('expenses')">⬇ Export CSV</button>
+        </div>
+        <div class="table-wrap"><table class="tbl">
+          <thead><tr><th>Date</th><th>Title</th><th>Category</th><th>Amount</th><th>Note</th><th></th></tr></thead>
+          <tbody id="exp-body"></tbody>
+        </table></div>
+      </section>
+
       <!-- AGENTS -->
       <section class="view hidden" id="view-agents">
-        <div class="toolbar"><button class="btn btn-primary" onclick="openAgentModal()">+ Add Agent</button></div>
+        <div class="toolbar"><button class="btn btn-primary perm-edit" onclick="openAgentModal()">+ Add Agent</button></div>
         <div class="cards-grid" id="agents-grid"></div>
       </section>
 
